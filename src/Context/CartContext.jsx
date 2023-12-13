@@ -6,14 +6,13 @@ export const CartContext = createContext()
 export const CartProvider = ({ children }) => {
 
     const [cart, setCart] = useState([])
-    
 
-    const obj = {
-        cart,
-        setCart
+    const addCart = ({name, photo, price}) => {
+        setCart((item) => [...item, {name, photo, price}] )
     }
 
-    return <CartContext.Provider value={obj}> {children} </CartContext.Provider>
+
+    return <CartContext.Provider value={{cart, addCart}}> {children} </CartContext.Provider>
     
 }
 
@@ -22,3 +21,4 @@ export default CartProvider
 CartProvider.propTypes = {
     children: PropTypes.any,
 }.isRequired
+
