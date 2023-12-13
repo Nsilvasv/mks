@@ -1,12 +1,12 @@
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { BsCart4 } from "react-icons/bs";
+import ButtonCart from '../ButtonCart';
+
 
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
+  { name: 'Login', href: '#', current: true },
+  { name: 'Produtos', href: '#', current: false },
+  { name: 'Meus favoritos', href: '#', current: false },
 ]
 
 function classNames(...classes) {
@@ -14,13 +14,14 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
-  
+
+
   return (
-    <Disclosure as="nav" className="bg-blue-700">
+    <Disclosure as="nav" className="bg-blue-700 ">
       {({ open }) => (
         <>
-          <div className="mx-auto w-full h-24 px-2 sm:px-6 lg:px-8">
-            <div className="relative flex h-16 items-center justify-between">
+          <div className="mx-auto w-full h-20 px-3 sm:px-6 lg:px-8">
+            <div className="relative flex h-20 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
 
                 {/* Mobile menu button*/}
@@ -35,8 +36,8 @@ export default function Navbar() {
                 </Disclosure.Button>
               </div>
               
-              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start ">
-                <div className="flex items-center mt-5">
+              <div className="flex items-center justify-center h-16 sm:items-stretch sm:justify-start ">
+                <div className="flex items-center ">
                     <h1 className='text-5xl font-semibold text-white hidden sm:block'>MKS</h1>
                     <p className='text-xl font-light ml-2 mt-5 text-white hidden sm:block'>Sistemas</p>
                 </div>
@@ -46,11 +47,8 @@ export default function Navbar() {
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 
-                <button type="button"className="flex justify-center relative rounded w-20 p-1 mt-7 bg-white hover:text-white focus:outline-none focus:ring-2" >
-                  <BsCart4 className="h-6 w-6 text-black" aria-hidden="true" /> <span className="ml-3">0</span>
-                </button>
+                <ButtonCart/>
 
-         
               </div>
             </div>
           </div>
