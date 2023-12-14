@@ -1,13 +1,14 @@
-//import Cart from "./Components/Cart"
+import BuscarProdutos from "./Components/BuscarProdutos"
+import Footer from "./Components/Footer"
 import Navbar from "./Components/Navbar"
-import Produtos from "./Components/Produtos"
 
 function App() {
 
   return (
     <>
       <Navbar/>
-      <Produtos/>
+      <BuscarProdutos/>
+      <Footer/>
     </>
   )
 }
