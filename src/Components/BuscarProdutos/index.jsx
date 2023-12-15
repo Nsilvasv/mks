@@ -13,13 +13,12 @@ const BuscarProdutos = () => {
   if (error) return 'Ocorreu um erro!: ' + error.message;
 
   const dados = data && data.products ? data.products : [];
-  console.log(dados);
 
   return (
     
-    <div className=" grid grid-rows-2  md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-4 gap-4 my-28 justify-items-center">
+    <div className=" grid grid-rows-2 xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2  my-28 justify-items-center ">
       {dados.map(item => (
-        <Produtos  key={item.id} name={item.name} photo={item.photo} price={item.price}/>
+        <Produtos  key={item.id}  name={item.name} photo={item.photo} price={item.price}/>
     ))}
     </div>
 
