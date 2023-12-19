@@ -14,6 +14,8 @@ const BuscarProdutos = () => {
 
   const dados = data && data.products ? data.products : [];
 
+  console.log(dados);
+
   return (
     
     <div className=" grid grid-rows-2 xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2  my-28 justify-items-center ">

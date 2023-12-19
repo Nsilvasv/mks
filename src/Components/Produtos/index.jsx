@@ -7,9 +7,10 @@ const Produtos = ({id, photo, name, price}) => {
 
   const { addCart } = useContext(CartContext)
 
+
   return (
             
-    <div key={id} className='bg-white w-56 h-72 grid my-8 justify-items-center rounded-lg border border-slate-100 shadow-lg'>
+    <div key={id} className='bg-white m-7 w-56  h-72 grid justify-items-center rounded-lg border border-slate-100 shadow-lg'>
 
       <img src={photo} className='w-40 h-40 flex justify-center content-center'/>
       <div className='flex  h-12  '>
