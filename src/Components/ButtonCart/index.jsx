@@ -10,12 +10,8 @@ const ButtonCart = () => {
     const [open, setOpen] = useState(false)
 
 
-    const { cart,  removeItem } = useContext(CartContext)
+    const { cart, addCart, removeItem, clearItem, cartTotal } = useContext(CartContext)
 
-
-   
-
-      const totalPrice = cart.reduce((acc, item) => acc + parseFloat(item.price), 0);
 
     return(
         <>
@@ -78,11 +74,11 @@ const ButtonCart = () => {
                                                     <div className=" border border-zinc-200 rounded-lg w-20 h-7 mr-4 flex justify-center items-center ">
                                                         
 
-                                                        <button >+</button>
+                                                        <button onClick={() => addCart(product)}>+</button>
 
-                                                        <span className="px-2 flex justify-center items-center">1</span>
+                                                        <span className="px-2 flex justify-center items-center">{product.quantity}</span>
                                                         
-                                                        <button >-</button>
+                                                        <button onClick={() => clearItem(product)}>-</button>
 
                                                     </div>
 
@@ -105,7 +101,7 @@ const ButtonCart = () => {
                     <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                         <div className="flex justify-between text-2xl font-bold text-white">
                             <p>Total:</p>
-                            <p>R${totalPrice}</p>
+                            <p>R${cartTotal()}</p>
                         </div>
                         <div className="mt-6">
                             <a
