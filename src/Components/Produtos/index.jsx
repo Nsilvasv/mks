@@ -7,6 +7,9 @@ const Produtos = ({id, photo, name, price}) => {
 
   const { addCart } = useContext(CartContext)
 
+  const addItemToCart = () => {
+    addCart({ id, name, photo, price });
+  }
 
   return (
             
@@ -20,7 +23,7 @@ const Produtos = ({id, photo, name, price}) => {
       
       <div className='flex items-end w-full'>
         <button className='bg-blue-800 text-white rounded-b-lg w-full h-8 flex justify-center items-center' 
-          onClick={() => addCart({id, name, photo, price})}
+          onClick={() => addItemToCart({id, name, photo, price})}
         >
           
           <FiShoppingBag className='mx-3'/> COMPRAR </button>
