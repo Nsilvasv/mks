@@ -1,18 +1,9 @@
-import { useContext, useState } from "react";
+import { useContext, useState } from "react"
+import tw from "tailwind-styled-components"
+import { CartContext } from "../../Context/CartContext"
 import { XMarkIcon } from '@heroicons/react/24/outline'
-import { BsCart4 } from "react-icons/bs";
-import { CartContext } from "../../Context/CartContext";
-import tw from "tailwind-styled-components";
 
-const BtnCarrinho = tw.button`
-    flex 
-    justify-center 
-    relative 
-    rounded 
-    w-20 
-    p-1 
-    bg-white
-`
+
 const Sidebar = tw.div`
     bg-blue-700
     fixed 
@@ -108,19 +99,15 @@ const BtnFinalizar = tw.a`
     text-white 
     shadow-sm 
 `
-const ButtonCart = () => {
 
+const Sidebarr = () => {
     const [open, setOpen] = useState(false)
 
-    const { cart, addCart, removeItem, decrementItem, cartTotal } = useContext(CartContext)
+    const { cart, addCart, removeItem, clearItem, cartTotal } = useContext(CartContext)
+
 
     return(
-        <>
-            <BtnCarrinho data-testid="btn-cart" type="button" onClick={() => setOpen(!open)}  >
-                <BsCart4 data-testid="icon-cart" className="h-6 w-6 text-black" aria-hidden="true" /> <span data-testid="span-qtd" className="ml-3">{cart.length}</span>
-            </BtnCarrinho>
-
-            <Sidebar className={` ${open ? "w-auto" : "w-0"} `}>
+        <Sidebar className={` ${open ? "w-auto" : "w-0"} `}>
                 <div className="pointer-events-auto w-screen  max-w-md ">
                 <div className="flex h-full flex-col  shadow-xl">
                     <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
@@ -176,7 +163,7 @@ const ButtonCart = () => {
                                                             {product.quantity}
                                                         </span>
                                                         
-                                                        <button onClick={() => decrementItem(product)}>-</button>
+                                                        <button onClick={() => clearItem(product)}>-</button>
 
                                                     </ContainerBtns>
 
@@ -212,10 +199,7 @@ const ButtonCart = () => {
                 </div>
                 </div>
             </Sidebar>
-            
-        </>
-
     )
 }
 
-export default ButtonCart
+export default Sidebarr
