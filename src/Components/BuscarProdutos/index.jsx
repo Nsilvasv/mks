@@ -22,7 +22,7 @@ const Loading = tw.div`
 flex 
 justify-center 
 items-center 
-my-64 
+my-72 
 `
 
 const BuscarProdutos = () => {
@@ -32,7 +32,7 @@ const BuscarProdutos = () => {
     ).then((res) => res.json())
   );
 
-  if (isLoading) return <Loading> <p className='text-xl font-serif font-medium'>Carregando...</p> </Loading> 
+  if (isLoading) return <Loading> <p className='text-2xl font-serif font-medium'>Carregando...</p> </Loading> 
 
   if (error) return 'Ocorreu um erro!: ' + error.message;
 

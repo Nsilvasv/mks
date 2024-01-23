@@ -43,28 +43,19 @@ const Card = tw.div`
     w-auto
 `
 const Name = tw.div`
-    mx-5 
+     
     py-4 
     flex 
-    justify-start 
+    justify-center 
     items-center 
     w-24 
     sm:w-24 
     text-sm 
     font-normal 
     text-zinc-800
+    
 `
-const ContainerBtns = tw.div`
-    border 
-    border-zinc-200 
-    rounded-lg 
-    w-20 
-    h-7 
-    mr-4 
-    flex 
-    justify-center 
-    items-center
-`
+
 const BtnRemove = tw.button`
     bg-black 
     text-white 
@@ -92,6 +83,17 @@ const ConteudoCard = tw.div`
     items-center 
     mt-3 
     pb-2
+`
+const ContainerBtns = tw.div`
+    border 
+    border-zinc-200 
+    rounded-lg 
+    w-20 
+    h-7 
+    mx-4 
+    flex 
+    justify-center 
+    items-center
 `
 const BtnFinalizar = tw.a`
     flex 
@@ -139,7 +141,6 @@ const ButtonCart = () => {
                                 
                                 </BtnFechar>
                         </div>
-                            {/* renderiza um componente */}
                             {cart.map((product) => (
                                 <div key={product.id} className="mt-10">
 
@@ -160,13 +161,13 @@ const ButtonCart = () => {
                                                 <Img src={product.photo} alt={product.photo} />
                                             </div>
 
-                                            <div className=" flex flex-wrap  justify-center items-center ">
+                                            <div className=" flex flex-wrap mx-3 justify-center items-center">
                                                 
                                                 <Name>
                                                     <h3>{product.name}</h3>
                                                 </Name>
                                                     
-                                                <div className="flex justify-center items-center ">
+                                                <div className="flex justify-center items-center">
                                                 
                                                     <ContainerBtns>
                                                         
@@ -199,7 +200,7 @@ const ButtonCart = () => {
                     <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                         <div className="flex justify-between text-2xl font-bold text-white">
                             <p>Total:</p>
-                            <p>R${cartTotal()}</p>
+                            <p>{cartTotal()}</p>
                         </div>
                         <div className="mt-6">
                             <BtnFinalizar href="#">
