@@ -1,12 +1,12 @@
 import { useQuery } from 'react-query';
-import Produtos from '../Produtos';
 import tw from 'tailwind-styled-components';
+import Produto from '../Produto';
 
 const Main = tw.div`
   flex
   justify-center
   bg-slate-50 
-  my-5
+  
 `
 const Cards = tw.div`
   grid 
@@ -18,6 +18,12 @@ const Cards = tw.div`
   max-w-max 
   my-28
 `
+const Loading = tw.div`
+flex 
+justify-center 
+items-center 
+my-64 
+`
 
 const BuscarProdutos = () => {
   const { data, isLoading, error } = useQuery('products', () =>
@@ -26,19 +32,18 @@ const BuscarProdutos = () => {
     ).then((res) => res.json())
   );
 
-  if (isLoading) return <p className='text-xl flex justify-center mt-24'>Carregando...</p>;
+  if (isLoading) return <Loading> <p className='text-xl font-serif font-medium'>Carregando...</p> </Loading> 
 
   if (error) return 'Ocorreu um erro!: ' + error.message;
 
   const dados = data && data.products ? data.products : [];
-
 
   return (
     
     <Main>
       <Cards>
         {dados.map(item => (
-          <Produtos key={item.id} name={item.name} photo={item.photo} price={item.price} description={item.description} />
+          <Produto key={item.id} name={item.name} photo={item.photo} price={item.price} description={item.description} />
         ))}
       </Cards>  
     </Main>

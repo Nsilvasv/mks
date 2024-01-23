@@ -30,7 +30,6 @@ const SubTituloLogo = tw.p`
 
 export default function Navbar() {
 
-
   return (
     <Disclosure as="nav" className="bg-blue-700 ">
       {({ open }) => (
@@ -45,7 +44,6 @@ export default function Navbar() {
                   rounded-md p-2 bg-gray-100 text-gray-900 hover:bg-gray-700
                  hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="absolute -inset-0.5" />
-                  <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XMarkIcon className="block h-7 w-7" aria-hidden="true" />
                   ) : (

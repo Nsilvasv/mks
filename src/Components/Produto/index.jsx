@@ -46,9 +46,8 @@ const BtnComprar = tw.button`
   justify-center 
   items-center
 `
-
 // eslint-disable-next-line react/prop-types
-const Produtos = ({id, photo, name, price, description}) => {
+const Produto = ({id, photo, name, price, description}) => {
 
   const { addCart } = useContext(CartContext)
 
@@ -59,7 +58,7 @@ const Produtos = ({id, photo, name, price, description}) => {
 
   return (
             
-    <Card key={id} >
+    <Card key={id}  data-testid='cart-id'>
 
       <Img src={photo}/>
 
@@ -73,7 +72,7 @@ const Produtos = ({id, photo, name, price, description}) => {
       </div>
 
       <div className='flex items-end w-full'>
-        <BtnComprar  onClick={() => addItemToCart({id, name, photo, price})} >
+        <BtnComprar data-testid='btn-add' onClick={() => addItemToCart({id, name, photo, price})} >
           <FiShoppingBag className='mx-3'/> COMPRAR 
         </BtnComprar>
       </div>
@@ -84,4 +83,4 @@ const Produtos = ({id, photo, name, price, description}) => {
   );
 };
 
-export default Produtos;
+export default Produto;

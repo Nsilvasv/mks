@@ -139,7 +139,7 @@ const ButtonCart = () => {
                                 
                                 </BtnFechar>
                         </div>
-                        
+                            {/* renderiza um componente */}
                             {cart.map((product) => (
                                 <div key={product.id} className="mt-10">
 
