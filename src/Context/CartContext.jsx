@@ -53,7 +53,10 @@ export const CartProvider = ({ children }) => {
       };
       
       const cartTotal = () => {
-        return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+        const total = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+        const formattedTotal = `R$${total.toFixed(2).replace(',', '.')}`;
+
+        return formattedTotal;
       };
 
     return <CartContext.Provider value={{cart, addCart, setCart, cartTotal, decrementItem, removeItem}}> {children} </CartContext.Provider>
